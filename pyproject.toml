@@ -1,0 +1,48 @@
+[project]
+name = "meridian"
+version = "0.2.0"
+description = "Portfolio analytics, risk, and AI research."
+
+[tool.ruff]
+line-length = 120
+exclude = ["venv", "streamlit", "frontend", ".git", "__pycache__"]
+
+[tool.ruff.lint]
+# Curated rule set: real bugs + style, not opinionated security/style churn.
+# F = pyflakes (unused imports, undefined names, unused vars)
+# E/W = pycodestyle (basic style)
+# I = isort (import sorting)
+# UP = pyupgrade (modern syntax)
+# RUF100 = unused noqa directives
+select = ["F", "E", "W", "I", "UP", "RUF100"]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests may use bare asserts and fixture imports freely.
+"tests/*" = ["E501"]
+# Agent layer: long prompt/schema string literals are intentional — wrapping
+# them would hurt readability of the LLM-facing text.
+"agent/*" = ["E501"]
+
+[tool.coverage.run]
+# Coverage is measured on the layers where correctness matters most: the pure
+# computation engine and the persistence/session layer. The thin network feed
+# adapters (massive, polygon, edgar, fred, universe, market, earnings) are
+# excluded — they're HTTP wrappers whose failure modes are exercised live, and
+# a coverage floor on them would force brittle mocking of third-party APIs.
+omit = [
+    "data/massive.py",
+    "data/schwab.py",
+    "data/polygon.py",
+    "data/edgar.py",
+    "data/fred.py",
+    "data/universe.py",
+    "data/market.py",
+    "data/earnings.py",
+]
+
+[tool.coverage.report]
+# The math and persistence layers must stay above this bar. A drop below it
+# fails `make coverage` — the signal that a correctness-critical path is
+# untested.
+fail_under = 70
+show_missing = true

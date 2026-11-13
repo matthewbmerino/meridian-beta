@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+dist/
+*.log
+
+frontend/node_modules/
+frontend/.next/
+frontend/web/
+frontend/tsconfig.tsbuildinfo
+
+# The data directory doubles as a Python package. Ship the code, never a store.
+data/*
+!data/*.py
+!data/AGENTS.md
