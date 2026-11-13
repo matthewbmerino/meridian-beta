@@ -126,7 +126,7 @@ PY
   [ -n "$VERSION" ] && [ -n "$TARBALL_URL" ] || die "manifest is missing version or url"
   TARBALL="$MH/downloads/meridian-$VERSION.tar.gz"
   say "Downloading Meridian $VERSION"
-  curl -fL --progress-bar "$TARBALL_URL" -o "$TARBALL.part" || die "download failed"
+  curl -fsSL "$TARBALL_URL" -o "$TARBALL.part" || die "download failed"
   mv "$TARBALL.part" "$TARBALL"
 fi
 

@@ -65,7 +65,6 @@ def _emit(checks: list[dict], version: str, channel: str, json_mode: bool) -> in
         })
         return 1 if failures else 0
 
-    print()
     suffix = f" · {channel}" if channel != "stable" else ""
     ui.banner("Meridian Beta · QA", f"{version}{suffix}")
     icons = {"ok": ui.green("✓"), "warn": ui.yellow("!"), "fail": ui.red("✗")}

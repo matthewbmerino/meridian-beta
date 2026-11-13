@@ -1,7 +1,7 @@
 ---
 name: meridian-beta
 description: Use when answering questions about the operator's portfolio, risk, debt, theses, decision record, QA, or reporting through Meridian Beta.
-version: 0.4.3
+version: 0.4.4
 author: Meridian
 ---
 

@@ -361,14 +361,13 @@ def run(args) -> int:
         "skills": [str(p) for p in installed],
         "password": password if generated else None,
         "password_shown_once": bool(password and generated),
-        "next": ["meridian status", "meridian doctor", "meridian update --check"],
+        "next": ["meridian status", "meridian qa", "meridian doctor", "meridian update --check"],
     }
 
     if args.json:
         ui.json_out(result)
         return 0
 
-    print()
     ui.banner("Meridian Beta · Ready", "the desk is running")
     pairs = []
     pairs.append(("API", home.api_url(cfg)))
@@ -383,7 +382,7 @@ def run(args) -> int:
     if values["agent"] != "none":
         print(f"  {agents.prompt(values['agent'])}")
         print()
-    print(ui.dim("  meridian status · meridian doctor · meridian update --check"))
+    print(ui.dim("  meridian status · meridian qa · meridian doctor · meridian update --check"))
     print(ui.dim("  The first backup is free: meridian backup"))
     print()
     return 0

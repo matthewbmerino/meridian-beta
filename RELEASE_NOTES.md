@@ -1,3 +1,9 @@
+# Meridian Beta 0.4.4 (early beta)
+
+- CLI polish: one blank line per section, silent installer downloads, and `meridian qa` in the setup next-steps.
+- The 0.4.3 monochrome surface is unchanged: dithered mark, thin rules, spaced labels, deny/approve confirmations.
+- No command behavior changed.
+
 # Meridian Beta 0.4.3 (early beta)
 
 - New CLI surface: monochrome, thin rules, generous spacing, a dithered brand mark, and deny/approve confirmations.
