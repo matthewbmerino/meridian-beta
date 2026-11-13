@@ -225,7 +225,7 @@ def run(args) -> int:
     if not problem:
         if not interactive:
             ui.die('Pass --problem "what went wrong" (and --solution) when not on a terminal.')
-        ui.banner("Report a problem", "Two fields. No book data.")
+        ui.banner("Meridian Beta · Report", "problem + recommended solution · no book data")
         problem = ui.ask("What went wrong?")
     if not solution:
         if not interactive:

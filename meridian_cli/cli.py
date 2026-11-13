@@ -84,7 +84,7 @@ def cmd_status(args) -> int:
         return 0 if health else 1
 
     print()
-    print(ui.bold(f"Meridian Beta {version}" + (f" · {channel}" if channel != "stable" else "")))
+    ui.banner("Meridian Beta · Status", f"{version} · {channel}")
     pairs = [("home", str(home.HOME))]
     api_state = ui.green(f"running · pid {api_pid}") if process.alive(api_pid) else ui.red("stopped")
     if health:

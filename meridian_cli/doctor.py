@@ -197,6 +197,7 @@ def run(cfg: dict, check_updates: bool = False, json_mode: bool = False) -> int:
         ui.json_out({"ok": not failures, "checks": checks,
                      "failures": len(failures), "warnings": len(warnings)})
     else:
+        ui.banner("Meridian Beta · Doctor", "install health")
         icons = {"ok": ui.green("✓"), "warn": ui.yellow("!"), "fail": ui.red("✗")}
         for check in checks:
             print(f"  {icons[check['status']]} {check['name']:<12} {check['detail']}")

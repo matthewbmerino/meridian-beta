@@ -7,6 +7,11 @@
 # private virtualenv, and leaves a `meridian` command in ~/.local/bin.
 set -euo pipefail
 
+BOLD=""; DIM=""; GREEN=""; YELLOW=""; RED=""; RESET=""
+if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
+  BOLD="\033[1m"; DIM="\033[2m"; GREEN="\033[32m"; YELLOW="\033[33m"; RED="\033[31m"; RESET="\033[0m"
+fi
+
 MH="${MERIDIAN_HOME:-$HOME/.meridian}"
 MANIFEST_URL="${MERIDIAN_UPDATE_URL:-https://meridian.matthewmerino.com/desk/manifest.json}"
 LOCAL_TARBALL=""
@@ -14,10 +19,10 @@ RUN_SETUP=1
 FORCE=0
 VERSION=""
 
-say()  { printf '\033[1;36m[meridian]\033[0m %s\n' "$*"; }
-ok()   { printf '\033[1;32m  ✓\033[0m %s\n' "$*"; }
-warn() { printf '\033[1;33m  !\033[0m %s\n' "$*"; }
-die()  { printf '\033[1;31m  ✗ %s\033[0m\n' "$*" >&2; exit 1; }
+say()  { printf '  %b›%b %s\n' "$DIM" "$RESET" "$*"; }
+ok()   { printf '  %b✓%b %s\n' "$GREEN" "$RESET" "$*"; }
+warn() { printf '  %b!%b %s\n' "$YELLOW" "$RESET" "$*"; }
+die()  { printf '  %b✗ %s%b\n' "$RED" "$*" "$RESET" >&2; exit 1; }
 
 while [ $# -gt 0 ]; do
   case "$1" in
@@ -35,8 +40,15 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-say "Meridian Beta installer"
-printf '  home: %s\n' "$MH"
+printf '\n'
+printf '  %b░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░%b\n' "$DIM" "$RESET"
+printf '  %b▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒%b\n' "$DIM" "$RESET"
+printf '  %b▓▓▓▓▓▓▓▓▓▓▓▓▓▓%b\n' "$DIM" "$RESET"
+printf '\n'
+printf '  %bMERIDIAN BETA%b\n' "$BOLD" "$RESET"
+printf '  %bprivate, headless portfolio desk%b\n' "$DIM" "$RESET"
+printf '  %b─────────────────────────────────────%b\n\n' "$DIM" "$RESET"
+printf '  %bhome%b %s\n' "$DIM" "$RESET" "$MH"
 
 # ---------------------------------------------------------------------------
 # Platform + prerequisites

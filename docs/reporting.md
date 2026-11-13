@@ -18,7 +18,7 @@ leaves the machine without `--send`.
 | `solution` | "Detect the listening process and offer to pick the next free port." |
 | `kind` | `bug`, `missing-flow`, `architecture`, `docs`, `other` |
 | `context` | `setup`, `start`, `update`, `import`, `ui`, `api`, `docs`, `other` |
-| `version` | `0.4.2` |
+| `version` | `0.4.3` |
 | `channel` | `beta` |
 | `os` / `arch` | `linux` / `x86_64` |
 | `python` / `node` | `3.12.16` / `22.11.0` |

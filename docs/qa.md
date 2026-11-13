@@ -25,7 +25,7 @@ book, optional feed missing).
 The JSON is:
 
 ```json
-{"ok": true, "version": "0.4.2", "channel": "beta",
+{"ok": true, "version": "0.4.3", "channel": "beta",
  "checks": [{"name": "var", "status": "ok", "detail": "8 symbols · VaR95 -2.01%", "ms": 412}],
  "failures": 0, "warnings": 1}
 ```

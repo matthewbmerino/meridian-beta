@@ -1,3 +1,9 @@
+# Meridian Beta 0.4.3 (early beta)
+
+- New CLI surface: monochrome, thin rules, generous spacing, a dithered brand mark, and deny/approve confirmations.
+- The installer, `setup`, `status`, `qa`, `doctor`, and `report` now share one hierarchy. No command behavior changed.
+- The beta channel, headless API/CLI, update/rollback, and report-to-GitHub-issue loop are unchanged.
+
 # Meridian Beta 0.4.2 (early beta)
 
 - Renamed from Meridian Desk to Meridian Beta. The repository is public at github.com/matthewbmerino/meridian-beta.
