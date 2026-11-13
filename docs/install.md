@@ -45,10 +45,10 @@ web bundle.
 
 ```bash
 mkdir -p ~/.meridian/downloads
-curl -fL https://meridian.matthewmerino.com/desk/meridian-0.4.4.tar.gz \
-  -o ~/.meridian/downloads/meridian-0.4.4.tar.gz
+curl -fL https://meridian.matthewmerino.com/desk/meridian-0.4.5.tar.gz \
+  -o ~/.meridian/downloads/meridian-0.4.5.tar.gz
 mkdir -p ~/.meridian/app
-tar -xzf ~/.meridian/downloads/meridian-0.4.4.tar.gz -C ~/.meridian/app
+tar -xzf ~/.meridian/downloads/meridian-0.4.5.tar.gz -C ~/.meridian/app
 python3 -m venv ~/.meridian/venv
 ~/.meridian/venv/bin/python -m pip install -r ~/.meridian/app/requirements.txt
 ```

@@ -185,16 +185,22 @@ def ask_secret(prompt: str) -> str:
 
 def confirm(prompt: str, default: bool = True) -> bool:
     # The visual is the image's binary action: a ghost deny and a solid approve.
+    suffix = "[Y/n]" if default else "[y/N]"
     if _COLOR and sys.stdin.isatty():
         deny = reverse(" deny ") if not default else " deny "
         approve = reverse(" approve ") if default else " approve "
         print()
+        print(f"  {prompt}")
         print(f"  {deny}   {approve}")
-    suffix = "[Y/n]" if default else "[y/N]"
-    try:
-        answer = input(f"  {prompt} {suffix} {faint(_MARK)} ").strip().lower()
-    except EOFError:
-        return default
+        try:
+            answer = input(f"  {suffix} {faint(_MARK)} ").strip().lower()
+        except EOFError:
+            return default
+    else:
+        try:
+            answer = input(f"  {prompt} {suffix} {faint(_MARK)} ").strip().lower()
+        except EOFError:
+            return default
     if not answer:
         return default
     return answer in ("y", "yes")

@@ -29,10 +29,10 @@ are untouched.
 
 ```json
 {
-  "version": "0.4.4",
+  "version": "0.4.5",
   "channel": "beta",
   "released": "2026-11-13",
-  "url": "https://meridian.matthewmerino.com/desk/meridian-0.4.4.tar.gz",
+  "url": "https://meridian.matthewmerino.com/desk/meridian-0.4.5.tar.gz",
   "sha256": "…",
   "notes": ["…"]
 }
@@ -57,7 +57,7 @@ If the CLI is broken, download the tarball and replace the tree by hand:
 meridian stop
 mv ~/.meridian/app ~/.meridian/app.old
 mkdir -p ~/.meridian/app
-tar -xzf meridian-0.4.4.tar.gz -C ~/.meridian/app
+tar -xzf meridian-0.4.5.tar.gz -C ~/.meridian/app
 # copy data/ across (non-.py entries) — or restore a backup
 meridian start
 ```
@@ -94,7 +94,7 @@ normally with uv.
 scripts/build_release.sh
 
 # 2. Publish
-scp dist/meridian-0.4.4.tar.gz dist/latest.tar.gz dist/manifest.json \\
+scp dist/meridian-0.4.5.tar.gz dist/latest.tar.gz dist/manifest.json \\
     user@your-host:/var/www/meridian-beta/
 ```
 

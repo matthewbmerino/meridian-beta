@@ -193,7 +193,7 @@ def apply(cfg: dict, assume_yes: bool = False, url: str | None = None, json_mode
         suffix = ""
         if str(latest.get("channel") or "") not in ("", "stable"):
             suffix = f" ({latest['channel']})"
-        ui.banner(f"Meridian {new_version}{suffix} is available", f"you have {current}")
+        ui.banner("Meridian Beta · Update", f"{new_version}{suffix} available · you have {current}")
         for note in notes:
             ui.info(f"• {note}")
         print()

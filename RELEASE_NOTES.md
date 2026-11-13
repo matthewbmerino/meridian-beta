@@ -1,3 +1,9 @@
+# Meridian Beta 0.4.5 (early beta)
+
+- The approval prompt now reads question → `deny` / `approve` → response, matching the reference hierarchy.
+- The update banner joins the same `MERIDIAN BETA · UPDATE` hierarchy as status, qa, doctor, and report.
+- No command behavior changed.
+
 # Meridian Beta 0.4.4 (early beta)
 
 - CLI polish: one blank line per section, silent installer downloads, and `meridian qa` in the setup next-steps.

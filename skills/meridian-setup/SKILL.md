@@ -1,7 +1,7 @@
 ---
 name: meridian-setup
 description: Use when installing or configuring Meridian Beta. Asks the three onboarding questions, runs the setup, and verifies the install.
-version: 0.4.4
+version: 0.4.5
 author: Meridian
 ---
 
@@ -94,7 +94,7 @@ The JSON has:
 ```json
 {
   "ok": true,
-  "version": "0.4.4",
+  "version": "0.4.5",
   "channel": "beta",
   "api": "http://127.0.0.1:8001",
   "book": "demo",
