@@ -8,7 +8,7 @@ from pathlib import Path
 
 from . import ui
 
-SKILLS = ("meridian-setup", "meridian-desk")
+SKILLS = ("meridian-setup", "meridian-beta")
 
 RUNTIME_LABELS = {
     "hermes": "Hermes",
@@ -18,9 +18,9 @@ RUNTIME_LABELS = {
 }
 
 PROMPTS = {
-    "hermes": 'Open Hermes and say: "Use the meridian-setup skill to set up Meridian Desk on this machine."',
-    "claude-code": 'Open Claude Code and say: "Use the meridian-setup skill to set up Meridian Desk on this machine."',
-    "codex": 'Open Codex and say: "Read the Meridian Desk brief and set it up on this machine."',
+    "hermes": 'Open Hermes and say: "Use the meridian-setup skill to set up Meridian Beta on this machine."',
+    "claude-code": 'Open Claude Code and say: "Use the meridian-setup skill to set up Meridian Beta on this machine."',
+    "codex": 'Open Codex and say: "Read the Meridian Beta brief and set it up on this machine."',
     "none": "Run `meridian setup` when you are ready.",
 }
 
@@ -40,21 +40,21 @@ def target_dir(runtime: str) -> Path | None:
 
 
 def _codex_brief() -> str:
-    return """<!-- meridian-desk:start -->
-# Meridian Desk
+    return """<!-- meridian-beta:start -->
+# Meridian Beta
 
 Meridian is a private portfolio desk installed on this machine. Its CLI is
-`meridian`; its skills live in `~/.codex/skills/meridian-desk` and
+`meridian`; its skills live in `~/.codex/skills/meridian-beta` and
 `~/.codex/skills/meridian-setup`.
 
-- Read `meridian-desk/SKILL.md` before answering questions about the book.
+- Read `meridian-beta/SKILL.md` before answering questions about the book.
 - Never invent a number. Read it from the local API or the CLI.
 - Writes are limited to the record and the manual ledgers. Nothing sends an order.
 - `meridian status --json` and `meridian doctor --json` are the state probes.
 - Run `meridian qa --json` before answering, after setup, and after an update.
 - Report every defect or missing flow with `meridian report --kind bug|missing-flow|architecture|docs`.
   The intake files it as a GitHub issue; never patch the installed app in place.
-<!-- meridian-desk:end -->
+<!-- meridian-beta:end -->
 """
 
 
@@ -68,6 +68,11 @@ def install(runtime: str) -> list[Path]:
     if destination is None:
         return []
     destination.mkdir(parents=True, exist_ok=True)
+    # The edition was renamed from Meridian Desk; remove the stale skill so an
+    # agent does not load both copies.
+    legacy = destination / "meridian-desk"
+    if legacy.exists():
+        shutil.rmtree(legacy, ignore_errors=True)
     installed: list[Path] = []
     for name in SKILLS:
         source = src / name
@@ -84,9 +89,9 @@ def install(runtime: str) -> list[Path]:
         brief.parent.mkdir(parents=True, exist_ok=True)
         existing = brief.read_text(encoding="utf-8") if brief.exists() else ""
         block = _codex_brief()
-        if "<!-- meridian-desk:start -->" in existing:
-            start = existing.index("<!-- meridian-desk:start -->")
-            end = existing.index("<!-- meridian-desk:end -->") + len("<!-- meridian-desk:end -->")
+        if "<!-- meridian-beta:start -->" in existing:
+            start = existing.index("<!-- meridian-beta:start -->")
+            end = existing.index("<!-- meridian-beta:end -->") + len("<!-- meridian-beta:end -->")
             existing = existing[:start] + block + existing[end:]
         else:
             existing = existing.rstrip() + "\n\n" + block

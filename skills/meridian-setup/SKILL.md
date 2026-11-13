@@ -1,12 +1,11 @@
 ---
 name: meridian-setup
-description: Use when installing or configuring Meridian Desk. Asks the three onboarding questions, runs the setup, and verifies the install.
-version: 0.4.1
+description: Use when installing or configuring Meridian Beta. Asks the three onboarding questions, runs the setup, and verifies the install.
+version: 0.4.2
 author: Meridian
-license: MIT
 ---
 
-# Set up Meridian Desk
+# Set up Meridian Beta
 
 You are installing a private portfolio desk for one operator on this machine.
 The CLI does the work; your job is to ask three questions, run one command, and
@@ -95,7 +94,7 @@ The JSON has:
 ```json
 {
   "ok": true,
-  "version": "0.4.1",
+  "version": "0.4.2",
   "channel": "beta",
   "api": "http://127.0.0.1:8001",
   "book": "demo",

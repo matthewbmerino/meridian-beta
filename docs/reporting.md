@@ -18,7 +18,7 @@ leaves the machine without `--send`.
 | `solution` | "Detect the listening process and offer to pick the next free port." |
 | `kind` | `bug`, `missing-flow`, `architecture`, `docs`, `other` |
 | `context` | `setup`, `start`, `update`, `import`, `ui`, `api`, `docs`, `other` |
-| `version` | `0.4.1` |
+| `version` | `0.4.2` |
 | `channel` | `beta` |
 | `os` / `arch` | `linux` / `x86_64` |
 | `python` / `node` | `3.12.16` / `22.11.0` |
@@ -67,7 +67,7 @@ Rules:
 1. An agent runs `meridian qa --json` and exercises the CLI/API.
 2. It hits a problem, or finds a gap that QA cannot see.
 3. `meridian report` writes it down, and sends it if asked.
-4. The central intake files a GitHub issue in `matthewbmerino/meridian-desk`
+4. The central intake files a GitHub issue in `matthewbmerino/meridian-beta`
    with the problem, the recommended solution, the kind, and the environment.
 5. The maintainer reproduces it, decides, and fixes it in the repo.
 6. A release ships; `meridian update` delivers it.

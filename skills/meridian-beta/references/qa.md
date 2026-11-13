@@ -1,6 +1,6 @@
 # QA: the architectural pass
 
-Meridian Desk is headless. `meridian qa` is the whole test of the installed
+Meridian Beta is headless. `meridian qa` is the whole test of the installed
 product: it proves the API, the book, the risk math, and the record end to end.
 
 ```bash
@@ -25,7 +25,7 @@ book, optional feed missing).
 The JSON is:
 
 ```json
-{"ok": true, "version": "0.4.1", "channel": "beta",
+{"ok": true, "version": "0.4.2", "channel": "beta",
  "checks": [{"name": "var", "status": "ok", "detail": "8 symbols · VaR95 -2.01%", "ms": 412}],
  "failures": 0, "warnings": 1}
 ```

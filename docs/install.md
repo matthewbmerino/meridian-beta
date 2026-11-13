@@ -1,6 +1,6 @@
-# Install Meridian Desk
+# Install Meridian Beta
 
-Meridian Desk is headless: a FastAPI app, a CLI, and agent skills. No dashboard,
+Meridian Beta is headless: a FastAPI app, a CLI, and agent skills. No dashboard,
 no Node.js.
 
 ## One command
@@ -45,10 +45,10 @@ web bundle.
 
 ```bash
 mkdir -p ~/.meridian/downloads
-curl -fL https://meridian.matthewmerino.com/desk/meridian-0.4.1.tar.gz \
-  -o ~/.meridian/downloads/meridian-0.4.1.tar.gz
+curl -fL https://meridian.matthewmerino.com/desk/meridian-0.4.2.tar.gz \
+  -o ~/.meridian/downloads/meridian-0.4.2.tar.gz
 mkdir -p ~/.meridian/app
-tar -xzf ~/.meridian/downloads/meridian-0.4.1.tar.gz -C ~/.meridian/app
+tar -xzf ~/.meridian/downloads/meridian-0.4.2.tar.gz -C ~/.meridian/app
 python3 -m venv ~/.meridian/venv
 ~/.meridian/venv/bin/python -m pip install -r ~/.meridian/app/requirements.txt
 ```

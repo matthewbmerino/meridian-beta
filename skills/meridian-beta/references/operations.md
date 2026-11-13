@@ -64,7 +64,7 @@ meridian api PUT /api/theses/NVDA --body '{"thesis":"…","conviction":4,"invali
 meridian api POST /api/decisions --body '{"type":"manual","symbol":"NVDA","action":"hold","source":"hermes","actor":"hermes"}'
 ```
 
-See `skills/meridian-desk/references/record.md` for every field.
+See `skills/meridian-beta/references/record.md` for every field.
 
 ## Agent skills
 

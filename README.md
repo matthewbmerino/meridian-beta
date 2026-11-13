@@ -1,4 +1,4 @@
-# Meridian Desk
+# Meridian Beta
 
 A private, self-hosted portfolio desk for one operator and their agent.
 
@@ -6,7 +6,7 @@ A private, self-hosted portfolio desk for one operator and their agent.
 > product. Every agent that operates the desk is expected to run `meridian qa`
 > and file what is broken with `meridian report`.
 
-Meridian Desk keeps the book, computes risk from the whole balance sheet, and
+Meridian Beta keeps the book, computes risk from the whole balance sheet, and
 holds an append-only record of why each position is held. The agent reads the
 same API the CLI reads, so a number cannot differ between them. It runs on your
 machine, with your keys, and sends nothing anywhere except the model calls you
@@ -102,4 +102,4 @@ contains user data is deleted, not triaged.
 
 ## License
 
-MIT. See `LICENSE`.
+No license is granted yet. Copyright © 2026 Matthew Merino. All rights reserved.

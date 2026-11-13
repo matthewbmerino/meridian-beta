@@ -1,6 +1,6 @@
 [project]
 name = "meridian"
-version = "0.2.0"
+version = "0.4.2"
 description = "Portfolio analytics, risk, and AI research."
 
 [tool.ruff]

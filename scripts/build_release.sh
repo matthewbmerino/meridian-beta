@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Build a Meridian Desk release tarball, checksum, and update manifest.
+# Build a Meridian Beta release tarball, checksum, and update manifest.
 #
 #   scripts/build_release.sh [--base-url URL]
 set -euo pipefail
@@ -96,4 +96,4 @@ echo "manifest dist/manifest.json"
 echo
 echo "publish:"
 echo "  scp dist/meridian-$VERSION.tar.gz dist/latest.tar.gz dist/manifest.json \\"
-echo "      user@your-host:/var/www/meridian-desk/"
+echo "      user@your-host:/var/www/meridian-beta/"

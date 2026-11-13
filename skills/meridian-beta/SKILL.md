@@ -1,12 +1,11 @@
 ---
-name: meridian-desk
-description: Use when answering questions about the operator's portfolio, risk, debt, theses, decision record, QA, or reporting through Meridian Desk.
-version: 0.4.0
+name: meridian-beta
+description: Use when answering questions about the operator's portfolio, risk, debt, theses, decision record, QA, or reporting through Meridian Beta.
+version: 0.4.2
 author: Meridian
-license: MIT
 ---
 
-# Meridian Desk
+# Meridian Beta
 
 A private portfolio desk on this machine. The app, the API, and you read the
 same book. Your job is to answer from that book, never from memory, and to

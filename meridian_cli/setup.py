@@ -225,7 +225,7 @@ def _agent_handoff(runtime: str) -> int:
     cfg["agent"]["runtime"] = runtime
     cfg["agent"]["skills_installed"] = bool(installed)
     home.save_config(cfg)
-    ui.banner("Meridian Desk", "Agent-guided setup")
+    ui.banner("Meridian Beta", "Agent-guided setup")
     for path in installed:
         ui.ok(f"Installed {path}")
     print()
@@ -250,7 +250,7 @@ def run(args) -> int:
     cfg = home.load_config()
 
     if interactive and not args.non_interactive:
-        ui.banner("Meridian Desk", f"{home.read_version()} · {home.read_channel()} · a private portfolio desk\nfor one operator and their agent.")
+        ui.banner("Meridian Beta", f"{home.read_version()} · {home.read_channel()} · a private portfolio desk\nfor one operator and their agent.")
         mode = ui.ask_choice(
             "How do you want to set this up?",
             [
@@ -368,7 +368,7 @@ def run(args) -> int:
         return 0
 
     print()
-    ui.banner("Meridian Desk is running")
+    ui.banner("Meridian Beta is running")
     pairs = []
     pairs.append(("API", home.api_url(cfg)))
     if password and generated:

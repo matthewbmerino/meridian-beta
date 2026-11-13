@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Meridian Desk installer.
+# Meridian Beta installer.
 #
 #   curl -fsSL https://meridian.matthewmerino.com/install.sh | bash
 #
@@ -35,7 +35,7 @@ while [ $# -gt 0 ]; do
   esac
 done
 
-say "Meridian Desk installer"
+say "Meridian Beta installer"
 printf '  home: %s\n' "$MH"
 
 # ---------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-# Meridian Desk — agent brief
+# Meridian Beta — agent brief
 
 This repository is the free, self-hosted edition of Meridian: a private
 portfolio desk for one operator and their agent. It is an early beta and it is

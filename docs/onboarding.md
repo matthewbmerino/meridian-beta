@@ -44,7 +44,7 @@ OLLAMA_API_KEY='…' meridian setup --non-interactive --book demo \
 ```json
 {
   "ok": true,
-  "version": "0.4.1",
+  "version": "0.4.2",
   "channel": "beta",
   "api": "http://127.0.0.1:8001",
   "book": "demo",
@@ -52,7 +52,7 @@ OLLAMA_API_KEY='…' meridian setup --non-interactive --book demo \
   "password": "amber-atlas-lumen-7319",
   "password_shown_once": true,
   "agent": "hermes",
-  "skills": ["/Users/you/.hermes/skills/meridian-desk"],
+  "skills": ["/Users/you/.hermes/skills/meridian-beta"],
   "next": ["meridian status", "meridian doctor", "meridian qa", "meridian update --check"]
 }
 ```

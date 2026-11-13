@@ -1,4 +1,4 @@
-# Contributing to Meridian Desk
+# Contributing to Meridian Beta
 
 ## Reports first
 
@@ -39,7 +39,7 @@ uses the same two fields in its body.
 
 ```bash
 scripts/build_release.sh
-sudo cp dist/* /var/www/meridian-desk/
+sudo cp dist/* /var/www/meridian-beta/
 ```
 
 Then install into a throwaway home and run the verification steps in

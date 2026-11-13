@@ -1,6 +1,6 @@
 # CLI
 
-The short version. `skills/meridian-desk/references/operations.md` has every
+The short version. `skills/meridian-beta/references/operations.md` has every
 flag.
 
 ## Setup and running

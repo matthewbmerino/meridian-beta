@@ -1,4 +1,4 @@
-"""Home directory, config file, and secret environment for Meridian Desk.
+"""Home directory, config file, and secret environment for Meridian Beta.
 
 Layout (default ``~/.meridian``)::
 
@@ -207,7 +207,7 @@ def write_env(values: dict[str, str]) -> None:
     HOME.mkdir(parents=True, exist_ok=True)
     existing = read_env()
     existing.update({k: v for k, v in values.items() if v is not None})
-    lines = ["# Meridian Desk secrets — keep this file private (0600)."]
+    lines = ["# Meridian Beta secrets — keep this file private (0600)."]
     for key in sorted(existing):
         lines.append(f"{key}={existing[key]}")
     tmp = ENV_PATH.with_suffix(".env.tmp")

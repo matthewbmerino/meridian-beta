@@ -1,4 +1,4 @@
-"""Command-line entry point for Meridian Desk."""
+"""Command-line entry point for Meridian Beta."""
 
 from __future__ import annotations
 
@@ -84,7 +84,7 @@ def cmd_status(args) -> int:
         return 0 if health else 1
 
     print()
-    print(ui.bold(f"Meridian Desk {version}" + (f" · {channel}" if channel != "stable" else "")))
+    print(ui.bold(f"Meridian Beta {version}" + (f" · {channel}" if channel != "stable" else "")))
     pairs = [("home", str(home.HOME))]
     api_state = ui.green(f"running · pid {api_pid}") if process.alive(api_pid) else ui.red("stopped")
     if health:
@@ -373,7 +373,7 @@ def cmd_uninstall(args) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="meridian",
-        description="Meridian Desk — a private portfolio desk for one operator and their agent.",
+        description="Meridian Beta — a private portfolio desk for one operator and their agent.",
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

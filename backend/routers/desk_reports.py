@@ -1,4 +1,4 @@
-"""Public intake for Meridian Desk product reports.
+"""Public intake for Meridian Beta product reports.
 
 A report is exactly two things — a problem and a recommended solution — plus a
 small environment fingerprint (version, OS, arch, Python, Node, agent). It
@@ -145,7 +145,7 @@ def _github_issue(record: dict) -> str:
     the report is still stored and the CLI still gets its id.
     """
     token = os.getenv("MERIDIAN_GITHUB_TOKEN") or os.getenv("GITHUB_TOKEN")
-    repo = os.getenv("MERIDIAN_REPORT_REPO", "matthewbmerino/meridian-desk")
+    repo = os.getenv("MERIDIAN_REPORT_REPO", "matthewbmerino/meridian-beta")
     if not token:
         return ""
     kind = record.get("kind", "other")
@@ -176,7 +176,7 @@ def _github_issue(record: dict) -> str:
             "Accept": "application/vnd.github+json",
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
-            "User-Agent": "meridian-desk-report/1",
+            "User-Agent": "meridian-beta-report/1",
             "X-GitHub-Api-Version": "2022-11-28",
         },
     )
