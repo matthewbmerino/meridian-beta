@@ -90,7 +90,7 @@ def cmd_status(args) -> int:
     if health:
         api_state += ui.dim(f" · {home.api_url(cfg)}")
     pairs.append(("api", api_state))
-    if home.get_cfg(cfg, "server.ui", False):
+    if home.get_cfg(cfg, "server.ui", True):
         web_state = ui.green(f"running · pid {web_pid}") if process.alive(web_pid) else ui.red("stopped")
         if process.alive(web_pid):
             web_state += ui.dim(f" · {home.web_url(cfg)}")
@@ -242,7 +242,7 @@ def cmd_passwd(args) -> int:
 
 def cmd_open(args) -> int:
     cfg = home.load_config()
-    url = home.api_url(cfg) + "/docs"
+    url = home.web_url(cfg) if home.get_cfg(cfg, "server.ui", True) else home.api_url(cfg) + "/docs"
     ui.info(url)
     if not args.print_only:
         webbrowser.open(url)
@@ -377,7 +377,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
     sub = parser.add_subparsers(dest="command", required=True)
 
-    p = sub.add_parser("setup", help="onboarding: book, model, agent")
+    p = sub.add_parser("setup", help="onboarding: book, model, agent, dashboard")
     p.add_argument("--plan", action="store_true", help="print the onboarding questionnaire as JSON")
     p.add_argument("--non-interactive", action="store_true")
     p.add_argument("--book", choices=["demo", "csv", "empty"])
@@ -393,14 +393,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(func=cmd_setup)
 
     for name, func, help_text in (
-        ("start", cmd_start, "start the API"),
+        ("start", cmd_start, "start the API and dashboard"),
         ("restart", cmd_restart, "restart the services"),
     ):
         p = sub.add_parser(name, help=help_text)
         p.add_argument("--api-only", action="store_true")
         p.set_defaults(func=func)
 
-    p = sub.add_parser("stop", help="stop the API")
+    p = sub.add_parser("stop", help="stop the API and dashboard")
     p.set_defaults(func=cmd_stop)
 
     p = sub.add_parser("status", help="what is running, and what the book holds")
@@ -446,11 +446,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--json", action="store_true")
     p.set_defaults(func=cmd_agent)
 
-    p = sub.add_parser("passwd", help="change the desk password")
+    p = sub.add_parser("passwd", help="change the dashboard password")
     p.add_argument("--stdin", action="store_true")
     p.set_defaults(func=cmd_passwd)
 
-    p = sub.add_parser("open", help="open the API docs")
+    p = sub.add_parser("open", help="open the dashboard")
     p.add_argument("--print", dest="print_only", action="store_true")
     p.set_defaults(func=cmd_open)
 
@@ -480,7 +480,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--solution", help="what you would change")
     p.add_argument("--context", choices=list(report.CONTEXTS), default="other")
     p.add_argument("--kind", choices=list(report.KINDS), default="bug",
-                   help="bug | missing-flow | visual | architecture | docs | other")
+                   help="bug | missing-flow | architecture | docs | other")
     p.add_argument("--send", action="store_true", help="submit the report")
     p.add_argument("--yes", action="store_true", help="skip the confirmation prompt")
     p.add_argument("--dry-run", action="store_true", help="print the exact payload, send nothing")

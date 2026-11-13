@@ -20,7 +20,7 @@ from pathlib import Path
 from . import home, net, ui
 
 CONTEXTS = ("setup", "start", "update", "import", "ui", "api", "docs", "other")
-KINDS = ("bug", "missing-flow", "visual", "architecture", "docs", "other")
+KINDS = ("bug", "missing-flow", "architecture", "docs", "other")
 MIN_LEN = 10
 MAX_LEN = 2000
 
